@@ -1,5 +1,5 @@
 " Vim syntax file
-" Language:     lihata for pcb-rnd
+" Language:     lihata 
 " Maintainer:   Ronald Miloh Alexander <miloh@froggytoad.net>
 
 if version < 600
@@ -29,7 +29,5 @@ hi def link lihataValue String
 let b:current_syntax = "lihata"
 inoremap ( ()<Esc>i
 inoremap { {<CR>}<Esc>kA
-"set dictionary=$VIM\vimfiles\complete\pcb-rnd.txt
-set dictionary=$HOME/.vim/complete/pcbrnd.txt
 set complete=.,k
 inoremap <C-Space> <C-P>
