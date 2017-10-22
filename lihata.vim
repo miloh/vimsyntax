@@ -9,11 +9,14 @@ elseif exists ("b:current_syntax")
 endif
 
 
+" lihata {type:name}={content};
+" te, li, ha, ta, symlink
+
 syn match lihataComment /^#.*/
 syn match lihataNode /\s*li\|ha\|ta/ contains=lihataError
 syn match lihataError /\s*\(li\|ha\|ta\)\s.\{-}:\s*/
-syn match lihataNodeName /:\s*\zs\i*\ze\s*{/
-syn match lihataKey /\s*\i*\s*=[^=]/ contains=lihataValue
+syn match lihataNodeName /:\s*\zs\i\p*\ze\s*{/
+syn match lihataKey /\s*\i\p*\s*=[^=]/ contains=lihataValue
 syn match lihataValue /=[^=].*/ contained skipwhite
 syn region lihataBlock start="{"  end="}" transparent fold
 
