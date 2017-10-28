@@ -1,0 +1,88 @@
+# we need a root node above multiple children nodes, if for nothing else,
+# to declare whether the children are ordered or not (list vs. hash)
+ha:examples {
+
+# simplest named text is: key = value
+text-node1 = something;
+
+# protected (quoted) string
+text-node2 = {
+this text is kept verbatim, including all whitespace, between { and \},
+but \} has to be backslash protected. Semicolons (;) are not interpreted
+in braced text.
+};
+
+# the equation sign was optional with braces:
+text-node3 {
+bla bla bla
+};
+
+li:anons {
+	# anonymous string, braced
+	te: {
+		text comes here
+	};
+
+	# anonymous string, simple
+	te: = text;
+
+	# implicit node type is always text; the above anonymous examples can be
+	# simplified:
+	{
+		text comes here
+	};
+
+	text;
+	# Note: a single string means "content of an anonymous text field"
+}
+
+# foo is a list, which means a list of ordered nodes
+li:foo {
+	item1;
+	item2;
+	item3;
+# this item starts with li: but the colon is escape protected
+	li\:item;
+	ha:bar {
+		key1 = val1;
+		key2 = val2;
+		key3 = val3;
+	};
+};
+
+# table called baz
+ta:baz {
+	{cell11;       cell12; cell13 }
+	{cell21;       cell22; cell23 }
+	{sy:=../foo;   cell32; cell33 }
+};
+
+# symlinks point to another path; path conventions are mostly the same as in
+# a UNIX file system, except for addressing lists and tables, where
+# combinations of name and/or number are accepted. In case there are
+# multiple nodes matching the same path (on any level), symlink will
+# always choose the first.
+sy:slink2=foo;
+sy:slink3=./foo;
+sy:slink4=../examples/foo;
+sy:slink5=/examples/foo;
+
+# In list the default indexing is by number; this points to text "item3"
+sy:slink6=/examples/foo/2;
+
+
+# In tabes the default indexing is row/col; this points to text "cell23"
+sy:slink7=/examples/baz/1/2;
+
+# semicolons and newlines (outside of braced text content) are both separators:
+li:simple_list {
+	item1
+	item2
+	item3
+	item4; item5
+}
+
+# however, multiple newline characters and/or semicolons are taken as a
+# single separator. Thus creating an empty anonymous node requires a {}.
+
+};
