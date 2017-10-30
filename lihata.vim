@@ -29,9 +29,9 @@ hi def link lihataTextNode Special
 hi def link lihataListNode Special
 hi def link lihataHashNode Special
 hi def link lihataTableNode Special
-hi def link lihataNodeName Statement
+hi def link lihataNodeName Function 
 hi def link lihataBlock Structure
-hi def link lihataKey Function 
+hi def link lihataKey Statement
 hi def link lihataValue String
 
 
