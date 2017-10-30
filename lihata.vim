@@ -12,7 +12,6 @@ endif
 " lihata {type:name}={content};
 " te, li, ha, ta, symlink
 
-syn match lihataComment /^\s*#.*/ 
 syn match lihataTextNode /\s*te\ze\(\s\|:\)/ contains=lihataError
 syn match lihataListNode /\s*li\ze\(\s\|:\)/ contains=lihataError
 syn match lihataHashNode /\s*ha\ze\(\s\|:\)/ contains=lihataError
@@ -22,6 +21,7 @@ syn match lihataNodeName /:\s*\zs\i\p*\ze\s*{/
 syn match lihataKey /\s*\i\p*\s*=\s*\i\p*/ contains=lihataValue
 syn match lihataValue /=[^=]\zs.*\ze;/ contained skipwhite
 syn region lihataBlock start="{"  end="}" transparent fold
+syn match lihataComment /\(^#\|\s*#\).*/ 
 
 hi def link lihataComment Comment
 hi def link lihataError Error
