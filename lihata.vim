@@ -20,7 +20,7 @@ syn match lihataTableNode /\s*ta\ze\(\s\|:\)/ contains=lihataError
 syn match lihataSymlinkNode /\s*sy\ze\(\s\|:\)/ contains=lihataError 
 syn match lihataError /\s*\(li\|ha\|ta\)\s.\{-}:\s*/
 syn match lihataKey /\s*\i\p*\s*\ze=\s*\i\p*/ 
-syn match lihataValue /=[^=]\zs.*\ze;/ skipwhite
+syn match lihataValue /=\zs[^=].*\ze\(;\|\n\)/ skipwhite
 syn region lihataBlock start="{"  end="}" transparent fold
 syn match lihataComment /\(^#\|\s*#\).*/ 
 
