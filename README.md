@@ -3,6 +3,10 @@ syntax files for vim
 
 focusing on lihata, pcb-rnd, and later gschem and pcb
 
+copy the syntax files into your home .vim syntax directory 
+
+cp lihata.vim ~/.vim/syntax/
+
 
 lihata
 ------
