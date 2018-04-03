@@ -1,1 +1,1 @@
-au BufRead,BufNewFile *.{lht}		set filetype=lihata
+au BufRead,BufNewFile *.{lht} set filetype=lihata fileformat=unix
