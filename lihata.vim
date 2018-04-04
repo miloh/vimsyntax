@@ -14,7 +14,7 @@ endif
 
 syn keyword lihataNodeTypes li ha ta te sy nextgroup=lihataNodeName
 syn match lihataNodeName /:\s*\zs\i\p*\ze\s*{/ contains=lihataError
-syn match lihataError /\s\{-}\ze:/ 
+syn match lihataError /\s\{-}\ze:/
 syn region lihataBlock start='{' end='}' transparent fold
 syn match lihataComment /\(^#\|\s*#\).*/
 
